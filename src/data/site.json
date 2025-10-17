@@ -1,0 +1,31 @@
+[
+	{
+		"slug": "info",
+		"title": "市長 / tantuyu 的技術網誌",
+		"author": {
+			"name": "市長 / tantuyu",
+			"email": "tantuyu@gmail.com",
+			"social": {
+				"github": "https://github.com/tantuyu",
+				"twitter": "https://twitter.com/tantuyu",
+				"linkedin": "https://linkedin.com/in/tantuyu"
+			}
+		},
+		"description": "從競程到網頁開發的那個人",
+		"url": "https://tantuyu.com",
+		"menu": [
+			{
+				"label": "關於",
+				"href": "/about"
+			},
+			{
+				"label": "文章",
+				"href": "/posts"
+			},
+			{
+				"label": "聯絡我",
+				"href": "/contact"
+			}
+		]
+	}
+]

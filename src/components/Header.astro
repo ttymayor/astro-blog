@@ -1,13 +1,21 @@
 ---
-import LocalTime from "./LocalTime.astro";
+import TaiwanTimeLazy from "./react/TaiwanTimeLazy";
+import TaiwanTime from "./react/TaiwanTime";
+import Navbar from "./react/Navbar";
+import { getCollection } from "astro:content";
+
+const site = await getCollection("site");
+const author = site[0]?.data.author;
+const menu = site[0]?.data.menu;
+
+const pathname = Astro.url.pathname;
 ---
 
 <header class="flex items-center justify-between px-4">
-  <h1 class="text-2xl font-bold">My Blog</h1>
-  <nav class="flex items-center gap-4">
-    <a href="/">Home</a>
-    <a href="/about">About</a>
-    <a href="/contact">Contact</a>
-  </nav>
-  <LocalTime />
+  <a href="/" class="text-foreground hover:text-primary no-underline">
+    <h1 class="text-2xl font-bold">{author.name}</h1>
+  </a>
+  <Navbar menu={menu} pathname={pathname} />
+  <!-- <TaiwanTimeLazy /> -->
+  <TaiwanTime client:load />
 </header>

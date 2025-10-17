@@ -1,6 +1,12 @@
 ---
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import { getCollection } from "astro:content";
+
+const site = await getCollection("site");
+const title = site[0]?.data.title;
+const description = site[0]?.data.description;
+const url = site[0]?.data.url;
 ---
 
 <!doctype html>
@@ -10,11 +16,17 @@ import Footer from "../components/Footer.astro";
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <title>Astro Basics</title>
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="url" content={url} />
   </head>
   <body class="m-0 h-full w-full">
     <Header />
-    <slot />
+    <main>
+      <div class="mx-auto w-full px-14 py-12 md:w-4/5 lg:w-3/5">
+        <slot />
+      </div>
+    </main>
     <Footer />
   </body>
 </html>
