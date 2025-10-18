@@ -1,11 +1,12 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import TechStacks from "../components/react/TechStacks";
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import { getCollection } from "astro:content";
+const site = await getCollection("site");
+const author = site[0]?.data.author;
+const techStacks = author.techStacks;
 ---
 
 <Layout>
-  <TechStacks client:only="react" />
+  <TechStacks techStacks={techStacks} reverse={true} client:only="react" />
 </Layout>

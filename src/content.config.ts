@@ -25,6 +25,10 @@ const site = defineCollection({
         twitter: z.string(),
         linkedin: z.string(),
       }),
+      techStacks: z.array(z.object({
+        name: z.string(),
+        icon: z.string(),
+      })),
     }),
     menu: z.array(z.object({
       label: z.string(),

@@ -9,7 +9,65 @@
 				"github": "https://github.com/tantuyu",
 				"twitter": "https://twitter.com/tantuyu",
 				"linkedin": "https://linkedin.com/in/tantuyu"
-			}
+			},
+			"techStacks": [
+				{
+					"name": "React",
+					"icon": "devicon-react-original colored"
+				},
+				{
+					"name": "Next.js",
+					"icon": "devicon-nextjs-plain colored"
+				},
+				{
+					"name": "PHP",
+					"icon": "devicon-php-plain text-2xl"
+				},
+				{
+					"name": "Laravel",
+					"icon": "devicon-laravel-original text-2xl"
+				},
+				{
+					"name": "Python",
+					"icon": "devicon-python-plain text-2xl"
+				},
+				{
+					"name": "Flask",
+					"icon": "devicon-flask-original text-2xl"
+				},
+				{
+					"name": "C++",
+					"icon": "devicon-cplusplus-plain text-2xl"
+				},
+				{
+					"name": "TypeScript",
+					"icon": "devicon-typescript-plain text-2xl"
+				},
+				{
+					"name": "Vue.js",
+					"icon": "devicon-vuejs-plain text-2xl"
+				},
+				{
+					"name": "MongoDB",
+					"icon": "devicon-mongodb-plain text-2xl"
+				},
+				{
+					"name": "MariaDB",
+					"icon": "devicon-mariadb-original text-2xl"
+				},
+				{
+					"name": "MySQL",
+					"icon": "devicon-mysql-plain text-2xl"
+				},
+				{
+					"name": "Docker",
+					"icon": "devicon-docker-plain text-2xl"
+				},
+				{
+					"name": "Golang",
+					"icon": "devicon-go-plain text-2xl"
+				}
+			]
 		},
 		"description": "從競程到網頁開發的那個人",
 		"url": "https://tantuyu.com",
