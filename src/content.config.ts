@@ -21,9 +21,14 @@ const site = defineCollection({
       name: z.string(),
       email: z.string(),
       social: z.object({
-        github: z.string(),
-        twitter: z.string(),
-        linkedin: z.string(),
+        github: z.string().optional(),
+        twitter: z.string().optional(),
+        discord: z.string().optional(),
+        instagram: z.string().optional(),
+        facebook: z.string().optional(),
+        youtube: z.string().optional(),
+        tiktok: z.string().optional(),
+        twitch: z.string().optional(),
       }),
       techStacks: z.array(z.object({
         name: z.string(),

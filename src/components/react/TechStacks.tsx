@@ -30,7 +30,7 @@ export default function TechStacks({
         >
           {techStacks.map((techStack, index) => (
             <MarqueeItem className="mx-4 my-8" key={index}>
-              <div className="flex items-center justify-center gap-4">
+              <div className="flex items-center justify-center gap-2">
                 <i className={`${techStack.icon} text-4xl`}></i>
                 <span className="text-xl font-bold">{techStack.name}</span>
               </div>
