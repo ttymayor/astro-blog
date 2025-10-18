@@ -5,6 +5,16 @@ const site = await getCollection("site");
 const author = site[0]?.data.author;
 ---
 
-<footer class="flex items-center justify-between px-4">
-  <p class="mx-auto">© 2025 {author.name}. All rights reserved.</p>
+<footer class="flex flex-col items-center justify-between px-4">
+  <div class="flex flex-col items-center justify-between">
+    <p class="mx-auto my-0">© 2025 {author.name}. All rights reserved.</p>
+    <p class="mx-auto my-0">
+      Built using <a
+        href="https://astro.build"
+        class="text-primary hover:text-primary">Astro</a
+      > and <a href="https://react.dev" class="text-primary hover:text-primary"
+        >React</a
+      >.
+    </p>
+  </div>
 </footer>
