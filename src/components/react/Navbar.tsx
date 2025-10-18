@@ -39,7 +39,7 @@ export default function Navbar({ menu, pathname }: NavbarProps) {
   ) : (
     <nav className="[&>a]:text-foreground [&>a]:hover:text-primary flex items-center gap-4 [&>a]:text-sm [&>a]:font-medium">
       {menu.map((link) => (
-        <a href={link.href} key={link.label}>
+        <a href={link.href} key={link.label} data-astro-prefetch>
           <Button
             variant="ghost"
             className={cn(
