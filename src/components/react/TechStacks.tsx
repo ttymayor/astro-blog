@@ -6,6 +6,7 @@ import {
   MarqueeFade,
   MarqueeItem,
 } from "@/components/ui/shadcn-io/marquee";
+import { motion } from "motion/react";
 
 interface TechStack {
   name: string;
@@ -20,7 +21,12 @@ export default function TechStacks({
   reverse?: boolean;
 }) {
   return (
-    <div className="bg-background flex size-full items-center justify-center">
+    <motion.div
+      initial={{ opacity: 0, y: 25 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: 0.2, duration: 0.5 }}
+      className="bg-background flex size-full items-center justify-center"
+    >
       <Marquee>
         <MarqueeFade side="left" />
         <MarqueeFade side="right" />
@@ -38,6 +44,6 @@ export default function TechStacks({
           ))}
         </MarqueeContent>
       </Marquee>
-    </div>
+    </motion.div>
   );
 }
