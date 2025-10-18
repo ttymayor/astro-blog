@@ -2,18 +2,11 @@
 import Layout from "../layouts/Layout.astro";
 import TechStacks from "../components/react/TechStacks";
 import { getCollection } from "astro:content";
+
 const site = await getCollection("site");
 const author = site[0]?.data.author;
-const techStacks = author.techStacks;
-const techStacks_first = author.techStacks.slice(0, techStacks.length / 2);
-const techStacks_second = author.techStacks.slice(techStacks.length / 2);
 ---
 
 <Layout>
-  <TechStacks techStacks={techStacks_first} client:only="react" />
-  <TechStacks
-    techStacks={techStacks_second}
-    reverse={true}
-    client:only="react"
-  />
+  <TechStacks techStacks={author.techStacks} client:only="react" />
 </Layout>

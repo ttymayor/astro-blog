@@ -11,10 +11,14 @@ const pathname = Astro.url.pathname;
 ---
 
 <header class="flex items-center justify-between px-4">
-  <a href="/" class="text-foreground hover:text-primary no-underline">
+  <a
+    href="/"
+    class="text-foreground hover:text-primary no-underline"
+    data-astro-reload
+  >
     <h1 class="text-xl font-bold md:text-2xl">{author.name}</h1>
   </a>
-  <Navbar menu={menu} pathname={pathname} client:only="react" />
+  <Navbar menu={menu} pathname={pathname} client:load />
   <TaiwanTime client:only="react">
     <div slot="fallback">
       <div class="flex items-center justify-between gap-1.5 text-xs">
@@ -22,7 +26,8 @@ const pathname = Astro.url.pathname;
           class="bg-secondary flex h-4 items-center justify-center rounded-xs px-1.5 font-mono text-sm font-medium"
         >
           TPE
-        </div><div
+        </div>
+        <div
           class="text-muted-foreground pl-0 text-sm font-medium tabular-nums"
         >
           00:00:00 AM
