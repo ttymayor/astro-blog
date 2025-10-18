@@ -66,6 +66,46 @@
 				{
 					"name": "Golang",
 					"icon": "devicon-go-plain text-2xl"
+				},
+				{
+					"name": "Cloudflare",
+					"icon": "devicon-cloudflare-plain text-2xl"
+				},
+				{
+					"name": "Ubuntu",
+					"icon": "devicon-ubuntu-plain text-2xl"
+				},
+				{
+					"name": "Git",
+					"icon": "devicon-git-plain text-2xl"
+				},
+				{
+					"name": "pnpm",
+					"icon": "devicon-pnpm-plain text-2xl"
+				},
+				{
+					"name": "VS Code",
+					"icon": "devicon-visualstudio-plain text-2xl"
+				},
+				{
+					"name": "Bash",
+					"icon": "devicon-bash-plain text-2xl"
+				},
+				{
+					"name": "GitHub",
+					"icon": "devicon-github-plain text-2xl"
+				},
+				{
+					"name": "Tailwind CSS",
+					"icon": "devicon-tailwindcss-plain text-2xl"
+				},
+				{
+					"name": "Markdown",
+					"icon": "devicon-markdown-plain text-2xl"
+				},
+				{
+					"name": "Hugo",
+					"icon": "devicon-hugo-plain text-2xl"
 				}
 			]
 		},
