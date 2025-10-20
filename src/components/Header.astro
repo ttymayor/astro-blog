@@ -10,5 +10,5 @@ const pathname = Astro.url.pathname;
 ---
 
 <header class="flex items-center justify-between px-4">
-  <Navbar menu={menu} pathname={pathname} author={author} client:load />
+  <Navbar menu={menu} pathname={pathname} author={author} client:only="react" />
 </header>
