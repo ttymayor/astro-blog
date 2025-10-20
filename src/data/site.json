@@ -17,7 +17,7 @@
         },
         {
           "name": "Next.js",
-          "icon": "devicon-nextjs-plain colored"
+          "icon": "devicon-nextjs-plain"
         },
         {
           "name": "PHP",
@@ -33,7 +33,7 @@
         },
         {
           "name": "Flask",
-          "icon": "devicon-flask-original colored"
+          "icon": "devicon-flask-original"
         },
         {
           "name": "C++",
@@ -89,11 +89,11 @@
         },
         {
           "name": "Bash",
-          "icon": "devicon-bash-plain colored"
+          "icon": "devicon-bash-plain"
         },
         {
           "name": "GitHub",
-          "icon": "devicon-github-plain colored"
+          "icon": "devicon-github-plain"
         },
         {
           "name": "Tailwind CSS",
@@ -101,7 +101,7 @@
         },
         {
           "name": "Markdown",
-          "icon": "devicon-markdown-plain colored"
+          "icon": "devicon-markdown-plain"
         },
         {
           "name": "Hugo",
