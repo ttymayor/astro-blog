@@ -6,6 +6,7 @@ import { useState } from "react";
 import { MenuIcon, XIcon } from "lucide-react";
 import TaiwanTime from "./TaiwanTime";
 import { useIsMobile } from "@/hooks/useIsMobile";
+import ThemeToggle from "./ThemeToggle";
 
 interface NavbarProps {
   menu: {
@@ -36,7 +37,7 @@ export default function Navbar({ menu, pathname, author }: NavbarProps) {
         <>
           <Button
             variant="ghost"
-            className="bg-background cursor-pointer border-0 text-base"
+            className="bg-background text-foreground hover:text-primary cursor-pointer border-0 text-base"
             onClick={() => setIsMenuOpen(true)}
           >
             <MenuIcon className="size-6" />
@@ -56,7 +57,7 @@ export default function Navbar({ menu, pathname, author }: NavbarProps) {
                 <Button
                   variant="ghost"
                   className={cn(
-                    "bg-background cursor-pointer border-0 text-base",
+                    "bg-background text-foreground hover:text-primary cursor-pointer border-0 text-base",
                     pathname === link.href ? "bg-accent" : "",
                   )}
                 >
@@ -65,7 +66,10 @@ export default function Navbar({ menu, pathname, author }: NavbarProps) {
               </a>
             ))}
           </nav>
-          <TaiwanTime />
+          <div className="flex items-center gap-2">
+            <TaiwanTime />
+            <ThemeToggle />
+          </div>
         </>
       )}
     </>
@@ -116,9 +120,10 @@ function MobileMenu({
       </div>
       <div
         id="mobile-menu-footer"
-        className="flex items-center justify-center py-4"
+        className="flex items-center justify-center gap-4 py-4"
       >
         <TaiwanTime />
+        <ThemeToggle />
       </div>
     </div>
   );

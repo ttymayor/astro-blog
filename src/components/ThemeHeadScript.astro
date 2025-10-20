@@ -1,0 +1,13 @@
+<script is:inline>
+  const theme = localStorage.getItem("theme");
+
+  if (theme === "dark") {
+    document.documentElement.classList.add("dark");
+  } else if (theme === "auto" || !theme) {
+    // auto 模式或沒有設定：根據系統偏好
+    if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+      document.documentElement.classList.add("dark");
+    }
+  }
+  // theme === "light" 時不做任何事，保持淺色
+</script>
