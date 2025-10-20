@@ -34,6 +34,11 @@ const site = defineCollection({
         name: z.string(),
         icon: z.string(),
       })),
+      events: z.array(z.object({
+        title: z.string(),
+        description: z.string(),
+        date: z.coerce.date(),
+      })),
     }),
     menu: z.array(z.object({
       label: z.string(),
