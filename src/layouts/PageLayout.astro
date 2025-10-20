@@ -1,0 +1,13 @@
+---
+import Layout from "./Layout.astro";
+import PageHeadingBg from "@/components/PageHeadingBg.astro";
+
+const { frontmatter } = Astro.props;
+const title = frontmatter?.title || "";
+---
+
+<Layout>
+  <PageHeadingBg title={title} />
+  <h1>{title}</h1>
+  <slot />
+</Layout>

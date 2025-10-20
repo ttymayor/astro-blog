@@ -1,0 +1,14 @@
+---
+layout: "@/layouts/PageLayout.astro"
+title: "文章"
+---
+import { getCollection } from "astro:content";
+import PostsList from "@/components/react/PostsList";
+
+export const allPosts = await getCollection("posts");
+
+export const postsList = allPosts.sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+
+<PostsList client:only="react" posts={postsList} />
