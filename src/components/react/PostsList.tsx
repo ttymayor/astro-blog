@@ -8,12 +8,15 @@ import {
   ItemDescription,
 } from "../ui/item";
 import { motion } from "motion/react";
+import { getLocalizedPath } from "@/i18n/utils";
+import { ui } from "@/i18n/ui";
 
 interface PostsListProps {
   posts: CollectionEntry<"posts">[];
+  lang: string;
 }
 
-export default function PostsList({ posts }: PostsListProps) {
+export default function PostsList({ posts, lang }: PostsListProps) {
   return (
     <ItemGroup className="flex flex-col gap-2">
       {posts.map((post, index) => (
@@ -24,7 +27,10 @@ export default function PostsList({ posts }: PostsListProps) {
           transition={{ delay: index * 0.2, duration: 0.5 }}
         >
           <a
-            href={`/posts/${post.data.slug}`}
+            href={getLocalizedPath(
+              `/posts/${post.data.slug}`,
+              lang as keyof typeof ui,
+            )}
             className="text-primary hover:text-primary flex w-full items-center gap-2 no-underline"
           >
             <Item

@@ -11,4 +11,4 @@ export const postsList = allPosts.sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
 
-<PostsList client:only="react" posts={postsList} />
+<PostsList client:only="react" posts={postsList} lang="en" />
