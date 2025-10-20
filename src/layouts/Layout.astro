@@ -16,6 +16,7 @@ const url = site[0]?.data.url;
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
+    <ThemeHeadScript />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
@@ -27,7 +28,6 @@ const url = site[0]?.data.url;
       type="text/css"
       href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
     />
-    <ThemeHeadScript />
     <ClientRouter />
   </head>
   <body class="m-0 h-full w-full">

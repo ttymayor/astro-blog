@@ -12,10 +12,12 @@ export function useTheme() {
     const savedTheme = localStorage.getItem("theme") as Theme | null;
     if (savedTheme) {
       setTheme(savedTheme);
-      applyTheme(savedTheme);
     } else {
-      setTheme("auto");
-      applyTheme("auto");
+      // 如果沒有儲存的主題，使用系統偏好
+      const systemPrefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      const defaultTheme = systemPrefersDark ? "dark" : "light";
+      setTheme(defaultTheme);
+      localStorage.setItem("theme", defaultTheme);
     }
 
     // 監聽系統主題變化（僅在 auto 模式下）
@@ -29,7 +31,7 @@ export function useTheme() {
 
     mediaQuery.addEventListener("change", handleChange);
     return () => mediaQuery.removeEventListener("change", handleChange);
-  }, []);
+  }, []); // 移除 theme 依賴，只在掛載時執行一次
 
   const applyTheme = (newTheme: Theme) => {
     if (newTheme === "auto") {

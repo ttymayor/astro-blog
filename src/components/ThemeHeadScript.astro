@@ -1,13 +1,50 @@
 <script is:inline>
-  const theme = localStorage.getItem("theme");
-
-  if (theme === "dark") {
-    document.documentElement.classList.add("dark");
-  } else if (theme === "auto" || !theme) {
-    // auto 模式或沒有設定：根據系統偏好
-    if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-      document.documentElement.classList.add("dark");
+  // 立即執行函數，防止主題閃爍
+  const theme = (() => {
+    if (typeof localStorage !== "undefined") {
+      const savedTheme = localStorage.getItem("theme");
+      if (
+        savedTheme === "dark" ||
+        savedTheme === "light" ||
+        savedTheme === "auto"
+      ) {
+        return savedTheme;
+      }
     }
+    // 預設使用系統偏好
+    if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+      return "dark";
+    }
+    return "light";
+  })();
+
+  // 應用主題
+  if (
+    theme === "dark" ||
+    (theme === "auto" &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches)
+  ) {
+    document.documentElement.classList.add("dark");
+  } else {
+    document.documentElement.classList.remove("dark");
   }
-  // theme === "light" 時不做任何事，保持淺色
+
+  // 儲存初始主題
+  if (typeof localStorage !== "undefined") {
+    localStorage.setItem("theme", theme);
+  }
+
+  // 處理客戶端導航時的主題保持
+  document.addEventListener("astro:after-swap", () => {
+    const currentTheme = localStorage.getItem("theme");
+    if (
+      currentTheme === "dark" ||
+      (currentTheme === "auto" &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches)
+    ) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  });
 </script>
