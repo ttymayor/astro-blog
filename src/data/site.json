@@ -12,6 +12,10 @@
       },
       "techStacks": [
         {
+          "name": "Astro",
+          "icon": "devicon-astro-plain colored"
+        },
+        {
           "name": "React",
           "icon": "devicon-react-original colored"
         },
