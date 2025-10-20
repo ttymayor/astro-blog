@@ -5,7 +5,6 @@ import { cn } from "@/lib/utils";
 import { useState } from "react";
 import { MenuIcon, XIcon } from "lucide-react";
 import TaiwanTime from "./TaiwanTime";
-import { useIsMobile } from "@/hooks/useIsMobile";
 import ThemeToggle from "./ThemeToggle";
 
 interface NavbarProps {
@@ -20,7 +19,6 @@ interface NavbarProps {
 }
 
 export default function Navbar({ menu, pathname, author }: NavbarProps) {
-  const isMobile = useIsMobile();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
@@ -31,47 +29,49 @@ export default function Navbar({ menu, pathname, author }: NavbarProps) {
         data-astro-prefetch
         data-astro-reload
       >
-        <h1 className="text-xl font-bold">{author.name}</h1>
+        <h1 className="text-xl font-bold md:text-2xl">{author.name}</h1>
       </a>
-      {isMobile ? (
-        <>
-          <Button
-            variant="ghost"
-            className="bg-background text-foreground hover:text-primary cursor-pointer border-0 text-base"
-            onClick={() => setIsMenuOpen(true)}
-          >
-            <MenuIcon className="size-6" />
-          </Button>
-          <MobileMenu
-            menu={menu}
-            pathname={pathname}
-            isMenuOpen={isMenuOpen}
-            setIsMenuOpen={setIsMenuOpen}
-          />
-        </>
-      ) : (
-        <>
-          <nav className="[&>a]:text-foreground [&>a]:hover:text-primary flex items-center gap-4 [&>a]:text-sm [&>a]:font-medium">
-            {menu.map((link) => (
-              <a href={link.href} key={link.label} data-astro-prefetch>
-                <Button
-                  variant="ghost"
-                  className={cn(
-                    "bg-background text-foreground hover:text-primary cursor-pointer border-0 text-base",
-                    pathname === link.href ? "bg-accent" : "",
-                  )}
-                >
-                  {link.label}
-                </Button>
-              </a>
-            ))}
-          </nav>
-          <div className="flex items-center gap-2">
-            <TaiwanTime />
-            <ThemeToggle />
-          </div>
-        </>
-      )}
+
+      {/* 手機版：使用 CSS 隱藏/顯示，避免閃爍 */}
+      <div className="flex items-center gap-2 md:hidden">
+        <Button
+          variant="ghost"
+          className="bg-background text-foreground hover:text-primary cursor-pointer border-0 text-base"
+          onClick={() => setIsMenuOpen(true)}
+          aria-label="開啟選單"
+        >
+          <MenuIcon className="size-6" />
+        </Button>
+      </div>
+      <MobileMenu
+        menu={menu}
+        pathname={pathname}
+        isMenuOpen={isMenuOpen}
+        setIsMenuOpen={setIsMenuOpen}
+      />
+
+      {/* 桌面版：使用 CSS 隱藏/顯示，避免閃爍 */}
+      <div className="hidden md:flex md:items-center md:gap-4">
+        <nav className="[&>a]:text-foreground [&>a]:hover:text-primary flex items-center gap-4 [&>a]:text-sm [&>a]:font-medium">
+          {menu.map((link) => (
+            <a href={link.href} key={link.label} data-astro-prefetch>
+              <Button
+                variant="ghost"
+                className={cn(
+                  "bg-background text-foreground hover:text-primary cursor-pointer text-base",
+                  pathname === link.href ? "bg-accent" : "",
+                )}
+              >
+                {link.label}
+              </Button>
+            </a>
+          ))}
+        </nav>
+        <div className="flex items-center gap-2">
+          <TaiwanTime />
+          <ThemeToggle />
+        </div>
+      </div>
     </>
   );
 }
@@ -100,7 +100,7 @@ function MobileMenu({
           <h1 className="text-2xl font-bold">選單</h1>
           <Button
             variant="ghost"
-            className="cursor-pointer border-0 bg-transparent text-base hover:bg-transparent"
+            className="cursor-pointer bg-transparent text-base hover:bg-transparent"
             onClick={() => setIsMenuOpen(false)}
           >
             <XIcon className="size-6" />
@@ -110,7 +110,7 @@ function MobileMenu({
           <a href={link.href} key={link.label} data-astro-prefetch>
             <Button
               variant="ghost"
-              className="w-full cursor-pointer border-0 bg-transparent py-8 text-xl transition-all duration-300 hover:bg-transparent hover:underline"
+              className="w-full cursor-pointer bg-transparent py-8 text-xl transition-all duration-300 hover:bg-transparent hover:underline"
               data-active={pathname === link.href}
             >
               {link.label}

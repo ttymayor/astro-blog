@@ -1,6 +1,7 @@
 ---
 import Navbar from "./react/Navbar";
 import { getCollection } from "astro:content";
+import HeaderFallback from "./HeaderFallback.astro";
 
 const site = await getCollection("site");
 const author = site[0]?.data.author;
@@ -10,5 +11,9 @@ const pathname = Astro.url.pathname;
 ---
 
 <header class="flex items-center justify-between px-4">
-  <Navbar menu={menu} pathname={pathname} author={author} client:only="react" />
+  <Navbar menu={menu} pathname={pathname} author={author} client:only="react">
+    <div slot="fallback" class="flex w-full items-center justify-between gap-2">
+      <HeaderFallback author={author} />
+    </div>
+  </Navbar>
 </header>

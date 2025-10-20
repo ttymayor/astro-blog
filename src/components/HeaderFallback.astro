@@ -1,0 +1,65 @@
+---
+import TaiwanTime from "./react/TaiwanTime";
+import { MenuIcon, SunMoonIcon } from "lucide-react";
+
+const { author } = Astro.props;
+---
+
+<a
+  href="/"
+  class="text-foreground no-underline"
+  data-astro-prefetch
+  data-astro-reload
+>
+  <h1 class="text-xl font-bold md:text-2xl">{author.name}</h1>
+</a>
+<div class="">
+  <div class="flex items-center gap-2 md:hidden">
+    <button
+      data-slot="button"
+      class="focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive hover:bg-accent dark:hover:bg-accent/50 bg-background text-foreground hover:text-primary inline-flex h-9 shrink-0 cursor-pointer items-center justify-center gap-2 rounded-md border-0 px-4 py-2 text-base font-medium whitespace-nowrap transition-all outline-none focus-visible:ring-[3px] disabled:pointer-events-none disabled:opacity-50 has-[>svg]:px-3 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4"
+      aria-label="開啟選單"
+      ><MenuIcon className="size-6" />
+    </button>
+  </div>
+  <div class="hidden md:flex md:items-center md:gap-4">
+    <nav
+      class="[&>a]:text-foreground [&>a]:hover:text-primary flex items-center gap-4 [&>a]:text-sm [&>a]:font-medium"
+    >
+      <a href="/about" data-astro-prefetch>
+        <button
+          data-slot="button"
+          class="focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive hover:bg-accent dark:hover:bg-accent/50 bg-background text-foreground hover:text-primary inline-flex h-9 shrink-0 cursor-pointer items-center justify-center gap-2 rounded-md border-0 px-4 py-2 text-base font-medium whitespace-nowrap transition-all outline-none focus-visible:ring-[3px] disabled:pointer-events-none disabled:opacity-50 has-[>svg]:px-3 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4"
+          >關於</button
+        >
+      </a>
+      <a href="/posts" data-astro-prefetch>
+        <button
+          data-slot="button"
+          class="focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive hover:bg-accent dark:hover:bg-accent/50 bg-background text-foreground hover:text-primary inline-flex h-9 shrink-0 cursor-pointer items-center justify-center gap-2 rounded-md border-0 px-4 py-2 text-base font-medium whitespace-nowrap transition-all outline-none focus-visible:ring-[3px] disabled:pointer-events-none disabled:opacity-50 has-[>svg]:px-3 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4"
+        >
+          文章
+        </button>
+      </a>
+      <a href="/contact" data-astro-prefetch>
+        <button
+          data-slot="button"
+          class="focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive hover:bg-accent dark:hover:bg-accent/50 bg-background text-foreground hover:text-primary inline-flex h-9 shrink-0 cursor-pointer items-center justify-center gap-2 rounded-md border-0 px-4 py-2 text-base font-medium whitespace-nowrap transition-all outline-none focus-visible:ring-[3px] disabled:pointer-events-none disabled:opacity-50 has-[>svg]:px-3 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4"
+        >
+          聯絡我
+        </button>
+      </a>
+    </nav>
+    <div class="flex items-center gap-2">
+      <TaiwanTime />
+      <div class="flex items-center gap-2">
+        <button
+          data-slot="button"
+          class="focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive hover:bg-accent dark:hover:bg-accent/50 text-foreground hover:text-primary inline-flex size-9 shrink-0 cursor-pointer items-center justify-center gap-2 rounded-md border-0 bg-transparent text-sm font-medium whitespace-nowrap transition-all outline-none focus-visible:ring-[3px] disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4"
+          aria-label="切換主題（目前：自動）"
+          ><SunMoonIcon className="size-4" />
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
