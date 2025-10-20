@@ -1,12 +1,16 @@
 ---
 import TaiwanTime from "./react/TaiwanTime";
-import { MenuIcon, SunMoonIcon } from "lucide-react";
-
+import { MenuIcon, SunMoonIcon, Languages } from "lucide-react";
+import { getLangFromUrl, useTranslations } from "@/i18n/utils";
+import { ui } from "@/i18n/ui";
+import { getLocalizedPath } from "@/i18n/utils";
 const { author } = Astro.props;
+const currentLang = getLangFromUrl(Astro.url);
+const t = useTranslations(currentLang);
 ---
 
 <a
-  href="/"
+  href={getLocalizedPath("/", currentLang as keyof typeof ui)}
   class="text-foreground no-underline"
   data-astro-prefetch
   data-astro-reload
@@ -26,38 +30,61 @@ const { author } = Astro.props;
     <nav
       class="[&>a]:text-foreground [&>a]:hover:text-primary flex items-center gap-4 [&>a]:text-sm [&>a]:font-medium"
     >
-      <a href="/about" data-astro-prefetch>
+      <a
+        href={getLocalizedPath("/about", currentLang as keyof typeof ui)}
+        data-astro-prefetch
+      >
         <button
           data-slot="button"
           class="focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive hover:bg-accent dark:hover:bg-accent/50 bg-background text-foreground hover:text-primary inline-flex h-9 shrink-0 cursor-pointer items-center justify-center gap-2 rounded-md border-0 px-4 py-2 text-base font-medium whitespace-nowrap transition-all outline-none focus-visible:ring-[3px] disabled:pointer-events-none disabled:opacity-50 has-[>svg]:px-3 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4"
-          >關於</button
+          >{t("nav.about")}</button
         >
       </a>
-      <a href="/posts" data-astro-prefetch>
+      <a
+        href={getLocalizedPath("/posts", currentLang as keyof typeof ui)}
+        data-astro-prefetch
+      >
         <button
           data-slot="button"
           class="focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive hover:bg-accent dark:hover:bg-accent/50 bg-background text-foreground hover:text-primary inline-flex h-9 shrink-0 cursor-pointer items-center justify-center gap-2 rounded-md border-0 px-4 py-2 text-base font-medium whitespace-nowrap transition-all outline-none focus-visible:ring-[3px] disabled:pointer-events-none disabled:opacity-50 has-[>svg]:px-3 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4"
         >
-          文章
+          {t("nav.posts")}
         </button>
       </a>
-      <a href="/contact" data-astro-prefetch>
+      <a
+        href={getLocalizedPath("/contact", currentLang as keyof typeof ui)}
+        data-astro-prefetch
+      >
         <button
           data-slot="button"
           class="focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive hover:bg-accent dark:hover:bg-accent/50 bg-background text-foreground hover:text-primary inline-flex h-9 shrink-0 cursor-pointer items-center justify-center gap-2 rounded-md border-0 px-4 py-2 text-base font-medium whitespace-nowrap transition-all outline-none focus-visible:ring-[3px] disabled:pointer-events-none disabled:opacity-50 has-[>svg]:px-3 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4"
         >
-          聯絡我
+          {t("nav.contact")}
         </button>
       </a>
     </nav>
     <div class="flex items-center gap-2">
-      <TaiwanTime />
+      <div class="flex items-center gap-2">
+        <TaiwanTime />
+      </div><button
+        data-slot="popover-trigger"
+        class="focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive hover:bg-accent dark:hover:bg-accent/50 text-foreground hover:text-primary inline-flex size-9 shrink-0 cursor-pointer items-center justify-center gap-2 rounded-md border-0 bg-transparent text-sm font-medium whitespace-nowrap transition-all outline-none focus-visible:ring-[3px] disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4"
+        aria-label="切換語言"
+        type="button"
+        aria-haspopup="dialog"
+        aria-expanded="false"
+        aria-controls="radix-_r_1_"
+        data-state="closed"
+      >
+        <Languages className="size-4" />
+      </button>
       <div class="flex items-center gap-2">
         <button
           data-slot="button"
           class="focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive hover:bg-accent dark:hover:bg-accent/50 text-foreground hover:text-primary inline-flex size-9 shrink-0 cursor-pointer items-center justify-center gap-2 rounded-md border-0 bg-transparent text-sm font-medium whitespace-nowrap transition-all outline-none focus-visible:ring-[3px] disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4"
-          aria-label="切換主題（目前：自動）"
-          ><SunMoonIcon className="size-4" />
+          aria-label="切換主題（目前：深色）"
+        >
+          <SunMoonIcon className="size-4" />
         </button>
       </div>
     </div>

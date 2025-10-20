@@ -2,16 +2,36 @@
 import Navbar from "./react/Navbar";
 import { getCollection } from "astro:content";
 import HeaderFallback from "./HeaderFallback.astro";
+import {
+  getLangFromUrl,
+  useTranslations,
+  getLocalizedPath,
+} from "@/i18n/utils";
 
 const site = await getCollection("site");
 const author = site[0]?.data.author;
-const menu = site[0]?.data.menu;
+const siteMenu = site[0]?.data.menu;
 
 const pathname = Astro.url.pathname;
+const currentLang = getLangFromUrl(Astro.url);
+const t = useTranslations(currentLang);
+
+// 根據語言本地化選單
+const menu = siteMenu.map((item) => ({
+  label: t(item.label as any),
+  href: getLocalizedPath(item.href, currentLang),
+}));
 ---
 
 <header class="flex items-center justify-between px-4">
-  <Navbar menu={menu} pathname={pathname} author={author} client:only="react">
+  <Navbar
+    menu={menu}
+    pathname={pathname}
+    author={author}
+    lang={currentLang}
+    menuTitle={t("menu.title")}
+    client:only="react"
+  >
     <div slot="fallback" class="flex w-full items-center justify-between gap-2">
       <HeaderFallback author={author} />
     </div>

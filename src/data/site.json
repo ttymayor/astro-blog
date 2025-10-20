@@ -136,15 +136,15 @@
     "url": "https://tantuyu.com",
     "menu": [
       {
-        "label": "關於",
+        "label": "nav.about",
         "href": "/about"
       },
       {
-        "label": "文章",
+        "label": "nav.posts",
         "href": "/posts"
       },
       {
-        "label": "聯絡我",
+        "label": "nav.contact",
         "href": "/contact"
       }
     ]

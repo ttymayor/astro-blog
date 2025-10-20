@@ -6,6 +6,9 @@ import { useState } from "react";
 import { MenuIcon, XIcon } from "lucide-react";
 import TaiwanTime from "./TaiwanTime";
 import ThemeToggle from "./ThemeToggle";
+import LanguageSwitcher from "./LanguageSwitcher";
+import { getLocalizedPath } from "@/i18n/utils";
+import { ui } from "@/i18n/ui";
 
 interface NavbarProps {
   menu: {
@@ -16,15 +19,23 @@ interface NavbarProps {
   author: {
     name: string;
   };
+  lang: string;
+  menuTitle: string;
 }
 
-export default function Navbar({ menu, pathname, author }: NavbarProps) {
+export default function Navbar({
+  menu,
+  pathname,
+  author,
+  lang,
+  menuTitle,
+}: NavbarProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
     <>
       <a
-        href="/"
+        href={getLocalizedPath("/", lang as keyof typeof ui)}
         className="text-foreground no-underline"
         data-astro-prefetch
         data-astro-reload
@@ -48,6 +59,8 @@ export default function Navbar({ menu, pathname, author }: NavbarProps) {
         pathname={pathname}
         isMenuOpen={isMenuOpen}
         setIsMenuOpen={setIsMenuOpen}
+        lang={lang}
+        menuTitle={menuTitle}
       />
 
       {/* 桌面版：使用 CSS 隱藏/顯示，避免閃爍 */}
@@ -69,6 +82,7 @@ export default function Navbar({ menu, pathname, author }: NavbarProps) {
         </nav>
         <div className="flex items-center gap-2">
           <TaiwanTime />
+          <LanguageSwitcher lang={lang} currentPath={pathname} />
           <ThemeToggle />
         </div>
       </div>
@@ -81,11 +95,15 @@ function MobileMenu({
   pathname,
   isMenuOpen,
   setIsMenuOpen,
+  lang,
+  menuTitle,
 }: {
   menu: NavbarProps["menu"];
   pathname: NavbarProps["pathname"];
   isMenuOpen: boolean;
   setIsMenuOpen: (isMenuOpen: boolean) => void;
+  lang: string;
+  menuTitle: string;
 }) {
   return (
     <div
@@ -97,14 +115,20 @@ function MobileMenu({
     >
       <div className="flex flex-col gap-2 p-4">
         <div className="flex items-center justify-between">
-          <h1 className="text-2xl font-bold">選單</h1>
-          <Button
-            variant="ghost"
-            className="cursor-pointer bg-transparent text-base hover:bg-transparent"
-            onClick={() => setIsMenuOpen(false)}
-          >
-            <XIcon className="size-6" />
-          </Button>
+          <h1 className="text-2xl font-bold">{menuTitle}</h1>
+
+          <div className="flex items-center gap-2">
+            <TaiwanTime />
+            <LanguageSwitcher lang={lang} currentPath={pathname} />
+            <ThemeToggle />
+            <Button
+              variant="ghost"
+              className="cursor-pointer bg-transparent text-base hover:bg-transparent"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              <XIcon className="size-6" />
+            </Button>
+          </div>
         </div>
         {menu.map((link) => (
           <a href={link.href} key={link.label} data-astro-prefetch>
@@ -121,10 +145,7 @@ function MobileMenu({
       <div
         id="mobile-menu-footer"
         className="flex items-center justify-center gap-4 py-4"
-      >
-        <TaiwanTime />
-        <ThemeToggle />
-      </div>
+      ></div>
     </div>
   );
 }

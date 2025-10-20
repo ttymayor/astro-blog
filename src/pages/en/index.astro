@@ -1,0 +1,12 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import TechStacks from "@/components/react/TechStacks";
+import { getCollection } from "astro:content";
+
+const site = await getCollection("site");
+const author = site[0]?.data.author;
+---
+
+<Layout>
+  <TechStacks techStacks={author.techStacks} client:only="react" />
+</Layout>
