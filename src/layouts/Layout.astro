@@ -2,6 +2,7 @@
 import { ClientRouter } from "astro:transitions";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import ThemeHeadScript from "@/components/ThemeHeadScript.astro";
 import { getCollection } from "astro:content";
 
 const site = await getCollection("site");
@@ -26,7 +27,7 @@ const url = site[0]?.data.url;
       type="text/css"
       href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
     />
-
+    <ThemeHeadScript />
     <ClientRouter />
   </head>
   <body class="m-0 h-full w-full">
