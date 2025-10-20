@@ -27,11 +27,11 @@ export default function Navbar({ menu, pathname, author }: NavbarProps) {
     <>
       <a
         href="/"
-        className="text-foreground hover:text-primary no-underline"
+        className="text-foreground no-underline"
         data-astro-prefetch
         data-astro-reload
       >
-        <h1 className="text-xl font-bold md:text-2xl">{author.name}</h1>
+        <h1 className="text-xl font-bold">{author.name}</h1>
       </a>
       {isMobile ? (
         <>
