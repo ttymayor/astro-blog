@@ -1,5 +1,4 @@
 ---
-import TaiwanTime from "./react/TaiwanTime";
 import Navbar from "./react/Navbar";
 import { getCollection } from "astro:content";
 
@@ -11,29 +10,5 @@ const pathname = Astro.url.pathname;
 ---
 
 <header class="flex items-center justify-between px-4">
-  <a
-    href="/"
-    class="text-foreground hover:text-primary no-underline"
-    data-astro-prefetch
-    data-astro-reload
-  >
-    <h1 class="text-xl font-bold md:text-2xl">{author.name}</h1>
-  </a>
-  <Navbar menu={menu} pathname={pathname} client:load />
-  <TaiwanTime client:only="react">
-    <div slot="fallback">
-      <div class="flex items-center justify-between gap-1.5 text-xs">
-        <div
-          class="bg-secondary flex h-4 items-center justify-center rounded-xs px-1.5 font-mono text-sm font-medium"
-        >
-          TPE
-        </div>
-        <div
-          class="text-muted-foreground pl-0 text-sm font-medium tabular-nums"
-        >
-          00:00:00 AM
-        </div>
-      </div>
-    </div>
-  </TaiwanTime>
+  <Navbar menu={menu} pathname={pathname} author={author} client:load />
 </header>
