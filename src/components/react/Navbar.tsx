@@ -2,9 +2,10 @@
 
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { MenuIcon, XIcon } from "lucide-react";
 import TaiwanTime from "./TaiwanTime";
+import { useIsMobile } from "@/hooks/useIsMobile";
 
 interface NavbarProps {
   menu: {
@@ -18,19 +19,8 @@ interface NavbarProps {
 }
 
 export default function Navbar({ menu, pathname, author }: NavbarProps) {
-  const [isMobile, setIsMobile] = useState(false);
+  const isMobile = useIsMobile();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-    window.addEventListener("resize", handleResize);
-    handleResize();
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
 
   return (
     <>
