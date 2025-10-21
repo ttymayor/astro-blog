@@ -9,7 +9,7 @@ import {
 
 export default function TaiwanTime() {
   return (
-    <div className="flex items-center gap-2">
+    <div className="flex items-center gap-2 select-none">
       <RelativeTime dateFormatOptions={{ dateStyle: "short" }}>
         <RelativeTimeZone zone={"Asia/Taipei"}>
           <RelativeTimeZoneLabel className="text-sm font-medium">

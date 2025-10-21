@@ -8,14 +8,31 @@ const author = site[0]?.data.author;
 
 <footer class="flex flex-col items-center justify-between px-4 py-8">
   <Separator />
-  <div class="mt-8 flex flex-col items-center justify-between">
+  <div
+    class="mt-8 flex flex-col items-center justify-between gap-2 select-none"
+  >
     <p class="mx-auto my-0">© 2025 {author.name}. All rights reserved.</p>
     <p class="mx-auto my-0">
-      Built using <a
-        href="https://astro.build"
-        class="text-primary hover:text-primary">Astro</a
-      > and <a href="https://react.dev" class="text-primary hover:text-primary"
-        >React</a
+      Built using
+      <a href="https://astro.build" class="text-primary hover:text-primary">
+        <i class="devicon-astro-plain colored"></i> Astro</a
+      > and
+      <a href="https://react.dev" class="text-primary hover:text-primary">
+        <i class="devicon-react-original colored"></i> React</a
+      >.
+    </p>
+    <p class="mx-auto my-0">
+      <span class="mx-auto my-0">Follow me on </span>
+      <a
+        href="https://github.com/ttymayor"
+        class="text-primary hover:text-primary"
+      >
+        <i class="devicon-github-original"></i>
+        GitHub</a
+      >, or ⭐ this
+      <a
+        href="https://github.com/ttymayor/astro-blog"
+        class="text-primary hover:text-primary">repository</a
       >.
     </p>
   </div>

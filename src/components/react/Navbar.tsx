@@ -70,7 +70,7 @@ export default function Navbar({
               <Button
                 variant="ghost"
                 className={cn(
-                  "bg-background text-foreground hover:text-primary cursor-pointer text-base",
+                  "bg-background text-foreground hover:text-primary cursor-pointer text-base select-none",
                   pathname === link.href ? "bg-accent" : "",
                 )}
               >
