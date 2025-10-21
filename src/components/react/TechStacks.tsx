@@ -27,7 +27,7 @@ export default function TechStacks({
       <motion.div
         initial={{ opacity: 0, y: 25 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.2, duration: 0.5 }}
+        transition={{ duration: 0.5 }}
         className="flex size-full flex-col items-center justify-center gap-4"
       >
         {/* 向左滾動的 Marquee */}
@@ -49,7 +49,7 @@ export default function TechStacks({
       <motion.div
         initial={{ opacity: 0, y: 25 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.4, duration: 0.5 }}
+        transition={{ delay: 0.2, duration: 0.5 }}
         className="flex size-full flex-col items-center justify-center gap-4"
       >
         {/* 向右滾動的 Marquee */}
