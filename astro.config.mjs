@@ -7,7 +7,12 @@ import tailwindcss from "@tailwindcss/vite";
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [react(), mdx()],
+  integrations: [
+    react({
+      experimentalDisableStreaming: true,
+    }),
+    mdx(),
+  ],
   i18n: {
     defaultLocale: "zh-TW",
     locales: ["zh-TW", "en"],

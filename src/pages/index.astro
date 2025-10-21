@@ -8,5 +8,7 @@ const author = site[0]?.data.author;
 ---
 
 <Layout>
-  <TechStacks techStacks={author.techStacks} client:only="react" />
+  <div class="w-full">
+    <TechStacks techStacks={author.techStacks} client:load />
+  </div>
 </Layout>
