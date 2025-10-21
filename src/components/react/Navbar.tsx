@@ -38,7 +38,6 @@ export default function Navbar({
         href={getLocalizedPath("/", lang as keyof typeof ui)}
         className="text-foreground no-underline"
         data-astro-prefetch
-        data-astro-reload
       >
         <h1 className="text-xl font-bold md:text-2xl">{author.name}</h1>
       </a>

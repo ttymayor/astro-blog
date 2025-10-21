@@ -56,7 +56,6 @@ export default function LanguageSwitcher({
         <div className="flex flex-col gap-2">
           {Object.entries(languages).map(([language, label]) => (
             <a
-              data-astro-reload
               key={language}
               href={getLocalizedPath(language, currentPath)}
               className={`text-foreground hover:text-primary rounded px-2 py-1 text-sm no-underline ${
