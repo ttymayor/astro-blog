@@ -38,7 +38,9 @@ const url = site[0]?.data.url;
         transition:name="main"
         transition:animate="slide"
       >
-        <slot />
+        <div class="flex-1">
+          <slot />
+        </div>
       </div>
     </main>
     <Footer />
