@@ -5,8 +5,10 @@ const posts = defineCollection({
   loader: glob({ pattern: "**/*.{md,mdx}", base: "./src/pages/posts" }),
   schema: z.object({
     title: z.string(),
-    description: z.string(),
+    description: z.string().optional(),
     slug: z.string(),
+    tags: z.array(z.string()).optional(),
+    categories: z.string().optional(),
     pubDate: z.coerce.date(),
   })
 });

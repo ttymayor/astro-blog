@@ -1,13 +1,31 @@
 ---
 import Layout from "./Layout.astro";
 import { Separator } from "@/components/ui/separator";
+import PageHeadingBg from "@/components/PageHeadingBg.astro";
+
 const { frontmatter } = Astro.props;
+const pubDate = new Date(frontmatter.pubDate);
+const titleCategories =
+  frontmatter.title +
+  (frontmatter.categories ? " ∈ " + frontmatter.categories : "");
 ---
 
 <Layout>
-  <h1 class="text-2xl font-bold">{frontmatter.title}</h1>
+  <h1 class="text-2xl font-bold">
+    {titleCategories}
+  </h1>
   <p class="text-sm text-gray-500">{frontmatter.description}</p>
-  <p class="text-sm text-gray-500">{frontmatter.pubDate}</p>
+  <p class="text-sm text-gray-500">{pubDate.toLocaleDateString("zh-TW")}</p>
+
+  <div class="my-4 flex flex-wrap gap-2">
+    {
+      frontmatter.tags?.map((tag: string) => (
+        <span class="bg-muted rounded-md px-2 py-1 text-sm">{tag}</span>
+      ))
+    }
+  </div>
+
   <Separator />
+  <PageHeadingBg title={titleCategories} />
   <slot />
 </Layout>
