@@ -66,7 +66,12 @@ export default function Navbar({
       <div className="hidden md:flex md:items-center md:gap-4">
         <nav className="[&>a]:text-foreground [&>a]:hover:text-primary flex items-center gap-4 [&>a]:text-sm [&>a]:font-medium">
           {menu.map((link) => (
-            <a href={link.href} key={link.label} data-astro-prefetch>
+            <a
+              href={link.href}
+              key={link.label}
+              onClick={() => setIsMenuOpen(false)}
+              data-astro-prefetch
+            >
               <Button
                 variant="ghost"
                 className={cn(
@@ -130,7 +135,12 @@ function MobileMenu({
           </div>
         </div>
         {menu.map((link) => (
-          <a href={link.href} key={link.label} data-astro-prefetch>
+          <a
+            href={link.href}
+            key={link.label}
+            onClick={() => setIsMenuOpen(false)}
+            data-astro-prefetch
+          >
             <Button
               variant="ghost"
               className="w-full cursor-pointer bg-transparent py-8 text-xl transition-all duration-300 hover:bg-transparent hover:underline"
