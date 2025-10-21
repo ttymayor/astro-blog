@@ -24,7 +24,7 @@ export default function PostsList({ posts, lang }: PostsListProps) {
           key={index}
           initial={{ opacity: 0, y: 25 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: index * 0.2, duration: 0.5 }}
+          transition={{ delay: (index + 1) * 0.2, duration: 0.5 }}
         >
           <a
             href={getLocalizedPath(

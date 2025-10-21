@@ -1,6 +1,7 @@
 ---
 import Layout from "./Layout.astro";
 import PageHeadingBg from "@/components/PageHeadingBg.astro";
+import { motion } from "motion/react";
 
 const { frontmatter } = Astro.props;
 const title = frontmatter?.title || "";
@@ -8,6 +9,13 @@ const title = frontmatter?.title || "";
 
 <Layout>
   <PageHeadingBg title={title} />
-  <h1>{title}</h1>
-  <slot />
+  <motion.div
+    initial={{ opacity: 0, y: 25 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.5 }}
+    client:only="react"
+  >
+    <h1>{title}</h1>
+    <slot />
+  </motion.div>
 </Layout>
