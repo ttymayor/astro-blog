@@ -9,6 +9,6 @@ const author = site[0]?.data.author;
 
 <Layout>
   <div class="flex flex-col items-center justify-center">
-    <TechStacks techStacks={author.techStacks} client:load />
+    <TechStacks techStacks={author.techStacks} client:only="react" />
   </div>
 </Layout>
