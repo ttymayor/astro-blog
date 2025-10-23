@@ -1,0 +1,15 @@
+---
+import Layout from "@/layouts/PageLayout.astro";
+import { getCollection } from "astro:content";
+import PostsList from "@/components/react/PostsList";
+
+const allPosts = await getCollection("posts");
+
+const posts = allPosts
+  .filter((post) => !post.data.draft)
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+---
+
+<Layout frontmatter={{ title: "文章" }}>
+  <PostsList client:only="react" posts={posts} lang="zh-TW" />
+</Layout>
