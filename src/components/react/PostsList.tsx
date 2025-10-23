@@ -7,6 +7,7 @@ import {
   ItemTitle,
   ItemDescription,
 } from "../ui/item";
+import { PencilLine } from "lucide-react";
 import { motion } from "motion/react";
 import { getLocalizedPath } from "@/i18n/utils";
 import { ui } from "@/i18n/ui";
@@ -46,8 +47,9 @@ export default function PostsList({ posts, lang }: PostsListProps) {
                 className="rounded-sm object-cover grayscale"
               />
               <ItemContent>
-                <ItemTitle className="line-clamp-1">
+                <ItemTitle className="line-clamp-1 flex items-center gap-2">
                   {post.data.title}
+                  {post.data.draft ? <PencilLine className="h-4 w-4" /> : ""}
                 </ItemTitle>
                 <ItemDescription className="my-0">
                   {post.data.description}
