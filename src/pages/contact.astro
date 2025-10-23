@@ -1,0 +1,8 @@
+---
+import Layout from "@/layouts/PageLayout.astro";
+import ContactPage from "@/components/react/Contact";
+---
+
+<Layout frontmatter={{ title: "聯絡我" }}>
+  <ContactPage client:only="react" />
+</Layout>
