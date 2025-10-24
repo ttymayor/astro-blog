@@ -49,7 +49,9 @@ export default function LanguageSwitcher({
           className="text-foreground hover:text-primary cursor-pointer bg-transparent"
           aria-label="切換語言"
         >
-          <Languages className="size-4" />
+          <div className="h-4 w-4 transition-all duration-300 hover:rotate-30">
+            <Languages className="size-4" />
+          </div>
         </Button>
       </PopoverTrigger>
       <PopoverContent className="w-40 border-0">

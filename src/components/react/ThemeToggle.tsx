@@ -29,9 +29,11 @@ export default function ThemeToggle() {
         onClick={toggleTheme}
         aria-label={`切換主題（目前：${theme === "auto" ? "自動" : theme === "light" ? "淺色" : "深色"}）`}
       >
-        {theme === "auto" && <SunMoonIcon className="size-4" />}
-        {theme === "light" && <SunIcon className="size-4" />}
-        {theme === "dark" && <MoonIcon className="size-4" />}
+        <div className="h-4 w-4 transition-all duration-300 hover:rotate-30">
+          {theme === "auto" && <SunMoonIcon className="size-4" />}
+          {theme === "light" && <SunIcon className="size-4" />}
+          {theme === "dark" && <MoonIcon className="size-4" />}
+        </div>
       </Button>
     </div>
   );
