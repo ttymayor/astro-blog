@@ -12,6 +12,7 @@ const author = site[0]?.data.author;
   <div
     class="mt-8 flex flex-col items-center justify-between gap-2 select-none"
   >
+    <SiteCounter client:idle />
     <p class="mx-auto my-0">© 2025 {author.name}. All rights reserved.</p>
     <p class="mx-auto my-0">
       Built using
@@ -36,6 +37,5 @@ const author = site[0]?.data.author;
         class="text-primary hover:text-primary">repository</a
       >.
     </p>
-    <SiteCounter client:idle />
   </div>
 </footer>
