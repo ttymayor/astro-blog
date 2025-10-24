@@ -3,11 +3,11 @@ const { title } = Astro.props;
 ---
 
 <div
-  class="absolute top-20 left-15 -z-50 text-4xl font-bold select-none sm:top-20 sm:left-8 sm:text-6xl md:top-60 md:left-12 lg:top-80 lg:left-50 lg:text-8xl"
+  class="absolute top-19 left-12 -z-50 font-bold select-none md:top-60 md:left-12 lg:top-80 lg:left-50"
 >
-  <h1 class="text-primary/20 m-0">{title}</h1>
-  <div
-    class="from-background absolute top-0 right-0 bottom-0 h-full w-full bg-gradient-to-l to-transparent"
+  <h1
+    class="text-primary/20 to-primary/20 m-0 bg-gradient-to-l from-transparent bg-clip-text text-[6rem] text-transparent md:text-[10rem] lg:text-[12rem]"
   >
-  </div>
+    {title}
+  </h1>
 </div>

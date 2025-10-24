@@ -37,7 +37,7 @@ export default function PostsList({ posts, lang }: PostsListProps) {
             <Item
               variant="outline"
               role="listitem"
-              className="bg-background hover:bg-accent w-full"
+              className="hover:bg-accent w-full backdrop-blur"
             >
               <img
                 src={`https://picsum.photos/200`}

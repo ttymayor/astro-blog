@@ -71,10 +71,14 @@ export default function Slides({ slides, lang }: SlidesProps) {
               )}
               <div className="flex gap-2">
                 {slide.slideLink && (
-                  <a href={slide.slideLink} target="_blank">
+                  <a
+                    href={slide.slideLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <Button
                       variant="ghost"
-                      className="cursor-pointer text-blue-500 hover:ring hover:ring-[#1d93ad]"
+                      className="hover:ring-tty hover:text-tty cursor-pointer text-blue-500 hover:ring"
                     >
                       <LinkIcon className="size-4" />
                       Slide
@@ -82,10 +86,14 @@ export default function Slides({ slides, lang }: SlidesProps) {
                   </a>
                 )}
                 {slide.pdfLink && (
-                  <a href={slide.pdfLink} target="_blank">
+                  <a
+                    href={slide.pdfLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <Button
                       variant="ghost"
-                      className="cursor-pointer text-red-500 hover:ring hover:ring-[#1d93ad]"
+                      className="hover:ring-tty hover:text-tty cursor-pointer text-red-500 hover:ring"
                     >
                       <FileIcon className="size-4" />
                       PDF
