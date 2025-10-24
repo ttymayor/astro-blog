@@ -6,6 +6,8 @@ import {
 } from "@/components/ui/marquee";
 import "@/styles/marquee.css";
 import { motion } from "motion/react";
+import { useTranslations } from "@/i18n/utils";
+import { ui } from "@/i18n/ui";
 
 interface TechStack {
   name: string;
@@ -14,13 +16,17 @@ interface TechStack {
 
 export default function TechStacks({
   techStacks,
+  lang,
 }: {
   techStacks: TechStack[];
+  lang: string;
 }) {
   // 將技術棧分成兩半，用於兩個方向的 Marquee
   const midPoint = Math.ceil(techStacks.length / 2);
   const firstHalf = techStacks.slice(0, midPoint);
   const secondHalf = techStacks.slice(midPoint);
+
+  const t = useTranslations(lang as keyof typeof ui);
 
   return (
     <>
@@ -30,7 +36,7 @@ export default function TechStacks({
         transition={{ duration: 0.5 }}
         className="text-left w-full"
       >
-        工具 & 技能
+        {t("techStacks.title")}
       </motion.h2>
       <motion.div
         initial={{ opacity: 0, y: 25 }}

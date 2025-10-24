@@ -7,15 +7,19 @@ import {
   LinkIcon,
   CalendarIcon,
   TagIcon,
-  DotIcon,
 } from "lucide-react";
+import { useTranslations } from "@/i18n/utils";
+import { ui } from "@/i18n/ui";
 
 interface SlidesProps {
   slides: CollectionEntry<"site">["data"]["author"]["slides"] | undefined;
+  lang: string;
 }
 
-export default function Slides({ slides }: SlidesProps) {
+export default function Slides({ slides, lang }: SlidesProps) {
   if (!slides) return null;
+
+  const t = useTranslations(lang as keyof typeof ui);
 
   return (
     <div className="h-full w-full">
@@ -25,7 +29,7 @@ export default function Slides({ slides }: SlidesProps) {
         transition={{ delay: 0.4, duration: 0.5 }}
         className="w-full text-left"
       >
-        簡報
+        {t("slides.title")}
       </motion.h2>
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
         {slides.map((slide, index) => (
