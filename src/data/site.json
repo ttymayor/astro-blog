@@ -134,6 +134,40 @@
           "description": "Description 2",
           "date": "2021-01-02"
         }
+      ],
+      "slides": [
+        {
+          "title": "Linux - 你應該要認識的企鵝",
+          "description": "你應該要認識的企鵝",
+          "slideLink": "https://surl.ttymayor.com/linux-slide",
+          "pdfLink": "https://surl.ttymayor.com/linux-slide-pdf",
+          "location": "東海大學 - 駭客社",
+          "date": "2025/09/18"
+        },
+        {
+          "title": "Demo Title",
+          "description": "Demo Description",
+          "slideLink": "https://surl.ttymayor.com/demo-slide",
+          "pdfLink": "https://surl.ttymayor.com/demo-slide-pdf",
+          "location": "Demo Location",
+          "date": "2025/09/20"
+        },
+        {
+          "title": "Demo Title",
+          "description": "Demo Description",
+          "slideLink": "https://surl.ttymayor.com/demo-slide",
+          "pdfLink": "https://surl.ttymayor.com/demo-slide-pdf",
+          "location": "Demo Location",
+          "date": "2025/09/20"
+        },
+        {
+          "title": "Demo Title",
+          "description": "Demo Description",
+          "slideLink": "https://surl.ttymayor.com/demo-slide",
+          "pdfLink": "https://surl.ttymayor.com/demo-slide-pdf",
+          "location": "Demo Location",
+          "date": "2025/09/20"
+        }
       ]
     },
     "description": "從競程到網頁開發的那個人",

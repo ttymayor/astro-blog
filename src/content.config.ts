@@ -41,7 +41,16 @@ const site = defineCollection({
         title: z.string(),
         description: z.string(),
         date: z.coerce.date(),
-      })),
+      })).optional(),
+      slides: z.array(z.object({
+        title: z.string(),
+        description: z.string().optional(),
+        image: z.string().optional(),
+        slideLink: z.string().optional(),
+        pdfLink: z.string().optional(),
+        location: z.string().optional(),
+        date: z.coerce.date().optional(),
+      })).optional(),
     }),
     menu: z.array(z.object({
       label: z.string(),
