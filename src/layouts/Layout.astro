@@ -4,6 +4,7 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import ThemeHeadScript from "@/components/ThemeHeadScript.astro";
 import { getCollection } from "astro:content";
+import GlowCursor from "@/components/react/GlowCursor";
 
 const site = await getCollection("site");
 const title = site[0]?.data.title;
@@ -31,6 +32,7 @@ const url = site[0]?.data.url;
     <ClientRouter />
   </head>
   <body class="m-0 h-full w-full">
+    <GlowCursor client:idle />
     <Header />
     <main>
       <div
