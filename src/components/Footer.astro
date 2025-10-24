@@ -1,6 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import { Separator } from "@/components/ui/separator";
+import SiteCounter from "./react/SiteCounter";
 
 const site = await getCollection("site");
 const author = site[0]?.data.author;
@@ -35,5 +36,6 @@ const author = site[0]?.data.author;
         class="text-primary hover:text-primary">repository</a
       >.
     </p>
+    <SiteCounter client:idle />
   </div>
 </footer>
