@@ -1,0 +1,21 @@
+---
+import Layout from "@/layouts/PageLayout.astro";
+import { getCollection } from "astro:content";
+import PostsList from "@/components/react/PostsList";
+import { getSecret } from "astro:env/server";
+import { getLangFromUrl } from "@/i18n/utils";
+
+const currentLang = getLangFromUrl(Astro.url);
+
+const allPosts = await getCollection("posts");
+
+const isDev = getSecret("ASTRO_ENV") === "dev";
+
+const posts = allPosts
+  .filter((post) => !post.data.draft || isDev)
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+---
+
+<Layout frontmatter={{ title: "Posts" }}>
+  <PostsList client:only="react" posts={posts} lang={currentLang} />
+</Layout>
