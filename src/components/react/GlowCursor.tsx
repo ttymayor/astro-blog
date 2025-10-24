@@ -1,4 +1,3 @@
-"use client";
 import { useEffect, useRef } from "react";
 
 export default function GlowCursor() {
@@ -24,7 +23,7 @@ export default function GlowCursor() {
       if (glowRef.current) {
         glowRef.current.style.background = `radial-gradient(
           200px circle at ${posX.current}px ${posY.current}px,
-          rgba(56, 189, 248, 0.18),
+          rgba(143, 217, 248, 0.18),
           transparent 80%
         )`;
       }
