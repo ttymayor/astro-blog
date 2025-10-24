@@ -1,9 +1,14 @@
 ---
 import Layout from "@/layouts/PageLayout.astro";
 import "@/styles/pages.css";
+import { getLangFromUrl } from "@/i18n/utils";
+import { useTranslations } from "@/i18n/utils";
+
+const currentLang = getLangFromUrl(Astro.url);
+const t = useTranslations(currentLang);
 ---
 
-<Layout frontmatter={{ title: "關於" }}>
+<Layout frontmatter={{ title: t("nav.about") }}>
   <p>Hi 👋</p>
 
   <p>

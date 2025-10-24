@@ -4,8 +4,10 @@ import { getCollection } from "astro:content";
 import PostsList from "@/components/react/PostsList";
 import { getSecret } from "astro:env/server";
 import { getLangFromUrl } from "@/i18n/utils";
+import { useTranslations } from "@/i18n/utils";
 
 const currentLang = getLangFromUrl(Astro.url);
+const t = useTranslations(currentLang);
 
 const allPosts = await getCollection("posts");
 
@@ -16,6 +18,6 @@ const posts = allPosts
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 ---
 
-<Layout frontmatter={{ title: "Posts" }}>
+<Layout frontmatter={{ title: t("nav.posts") }}>
   <PostsList client:only="react" posts={posts} lang={currentLang} />
 </Layout>
