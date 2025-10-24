@@ -24,6 +24,14 @@ export default function TechStacks({
 
   return (
     <>
+      <motion.h2
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="text-left w-full"
+      >
+        工具 & 技能
+      </motion.h2>
       <motion.div
         initial={{ opacity: 0, y: 25 }}
         animate={{ opacity: 1, y: 0 }}

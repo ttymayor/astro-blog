@@ -2,13 +2,22 @@
 import Layout from "../layouts/Layout.astro";
 import TechStacks from "../components/react/TechStacks";
 import { getCollection } from "astro:content";
+import Slides from "@/components/react/Slides";
 
 const site = await getCollection("site");
 const author = site[0]?.data.author;
+
+const sortedSlides = author?.slides?.sort((a, b) => {
+  return (
+    new Date(b?.date ?? new Date()).getTime() -
+    new Date(a?.date ?? new Date()).getTime()
+  );
+});
 ---
 
 <Layout>
   <div class="flex flex-col items-center justify-center">
     <TechStacks techStacks={author.techStacks} client:only="react" />
+    <Slides slides={sortedSlides} client:only="react" />
   </div>
 </Layout>
