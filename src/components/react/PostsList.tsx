@@ -7,7 +7,7 @@ import {
   ItemTitle,
   ItemDescription,
 } from "../ui/item";
-import { PencilLine } from "lucide-react";
+import { PencilLine, ArrowRight } from "lucide-react";
 import { motion } from "motion/react";
 import { getLocalizedPath } from "@/i18n/utils";
 import { ui } from "@/i18n/ui";
