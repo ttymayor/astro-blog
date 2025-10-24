@@ -44,6 +44,8 @@ const site = defineCollection({
       })).optional(),
       slides: z.array(z.object({
         title: z.string(),
+        tags: z.array(z.string()).optional(),
+        madeBy: z.string().optional(),
         description: z.string().optional(),
         image: z.string().optional(),
         slideLink: z.string().optional(),

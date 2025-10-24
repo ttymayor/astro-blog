@@ -138,35 +138,29 @@
       "slides": [
         {
           "title": "Linux - 你應該要認識的企鵝",
-          "description": "你應該要認識的企鵝",
           "slideLink": "https://surl.ttymayor.com/linux-slide",
           "pdfLink": "https://surl.ttymayor.com/linux-slide-pdf",
+          "tags": ["Linux", "General Skills"],
+          "madeBy": "Figma",
           "location": "東海大學 - 駭客社",
           "date": "2025/09/18"
         },
         {
-          "title": "Demo Title",
-          "description": "Demo Description",
-          "slideLink": "https://surl.ttymayor.com/demo-slide",
-          "pdfLink": "https://surl.ttymayor.com/demo-slide-pdf",
-          "location": "Demo Location",
-          "date": "2025/09/20"
+          "title": "入門 Docker 開發技能 +1",
+          "slideLink": "https://surl.ttymayor.com/docker-slide",
+          "pdfLink": "https://surl.ttymayor.com/docker-slide-pdf",
+          "tags": ["Docker", "Development"],
+          "madeBy": "Figma",
+          "location": "東海大學 - 駭客社",
+          "date": "2025/05/15"
         },
         {
-          "title": "Demo Title",
-          "description": "Demo Description",
-          "slideLink": "https://surl.ttymayor.com/demo-slide",
-          "pdfLink": "https://surl.ttymayor.com/demo-slide-pdf",
-          "location": "Demo Location",
-          "date": "2025/09/20"
-        },
-        {
-          "title": "Demo Title",
-          "description": "Demo Description",
-          "slideLink": "https://surl.ttymayor.com/demo-slide",
-          "pdfLink": "https://surl.ttymayor.com/demo-slide-pdf",
-          "location": "Demo Location",
-          "date": "2025/09/20"
+          "title": "入門網頁漏洞",
+          "slideLink": "https://tantuyu-slide.zeabur.app/",
+          "location": "東海大學 - 駭客社",
+          "tags": ["Web", "Security"],
+          "madeBy": "Slidev",
+          "date": "2025/10/02"
         }
       ]
     },
