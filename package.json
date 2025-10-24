@@ -32,7 +32,8 @@
     "react-fast-marquee": "^1.6.5",
     "tailwind-merge": "^3.3.1",
     "tailwindcss": "^4.1.15",
-    "vaul": "^1.1.2"
+    "vaul": "^1.1.2",
+    "vercount-react": "^0.1.4"
   },
   "devDependencies": {
     "prettier": "^3.6.2",
