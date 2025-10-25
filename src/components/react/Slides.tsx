@@ -1,6 +1,7 @@
 import type { CollectionEntry } from "astro:content";
 import { motion } from "motion/react";
 import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 import {
   MapPinIcon,
   FileIcon,
@@ -52,12 +53,9 @@ export default function Slides({ slides, lang }: SlidesProps) {
                 <p className="text-muted-foreground flex items-center gap-2 text-sm">
                   <TagIcon className="size-4" />
                   {slide.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="text-muted-foreground bg-muted m-0 rounded-full px-2 py-1 text-xs font-bold"
-                    >
+                    <Badge key={tag} variant="secondary">
                       #{tag}
-                    </span>
+                    </Badge>
                   ))}
                 </p>
               )}
