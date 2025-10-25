@@ -2,7 +2,9 @@
 import Layout from "./Layout.astro";
 import { Separator } from "@/components/ui/separator";
 import { PencilLine } from "lucide-react";
+import CC from "@/components/react/CC";
 
+const currentLocale = Astro.currentLocale as string;
 const { frontmatter } = Astro.props;
 
 const pubDate = new Date(frontmatter.pubDate);
@@ -15,7 +17,7 @@ const titleCategories =
   <div
     class="bg-foreground/5 border-foreground/10 rounded-lg border p-4 backdrop-blur-sm"
   >
-    <h1 class="mt-0 text-2xl font-bold">
+    <h1 class="mt-2 text-4xl font-bold">
       {titleCategories}
       {frontmatter.draft ? <PencilLine className="w-4 h-4" /> : ""}
     </h1>
@@ -32,7 +34,10 @@ const titleCategories =
       }
     </div>
 
-    <Separator />
+    <Separator className="my-4" />
     <slot />
+    <Separator className="my-4" />
+
+    <CC type="by-sa" lang={currentLocale} client:only="react" />
   </div>
 </Layout>
