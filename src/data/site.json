@@ -143,6 +143,7 @@
           "tags": ["Linux", "General Skills"],
           "madeBy": "Figma",
           "location": "東海大學 - 駭客社",
+          "duration": 3.5,
           "date": "2025/09/18"
         },
         {
@@ -152,6 +153,7 @@
           "tags": ["Docker", "Development"],
           "madeBy": "Figma",
           "location": "東海大學 - 駭客社",
+          "duration": 2.5,
           "date": "2025/05/15"
         },
         {
@@ -160,6 +162,7 @@
           "location": "東海大學 - 駭客社",
           "tags": ["Web", "Security"],
           "madeBy": "Slidev",
+          "duration": 3,
           "date": "2025/10/02"
         }
       ]

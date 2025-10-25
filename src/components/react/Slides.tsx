@@ -8,6 +8,7 @@ import {
   LinkIcon,
   CalendarIcon,
   TagIcon,
+  ClockIcon,
 } from "lucide-react";
 import { useTranslations } from "@/i18n/utils";
 import { ui } from "@/i18n/ui";
@@ -43,7 +44,9 @@ export default function Slides({ slides, lang }: SlidesProps) {
           >
             <div className="rounded-xl p-4 transition-all duration-300 hover:bg-[#1d93ad]/10 hover:ring hover:ring-[#1d93ad]">
               <div className="flex items-center justify-between gap-2">
-                <h3 className="my-0 text-lg font-bold">{slide.title}</h3>
+                <h3 className="my-0 flex items-center gap-2 text-lg font-bold">
+                  {slide.title}
+                </h3>
                 <pre className="text-muted-foreground m-0 font-bold">
                   {slide.madeBy}
                 </pre>
@@ -65,6 +68,8 @@ export default function Slides({ slides, lang }: SlidesProps) {
                   {slide.location}
                   <CalendarIcon className="size-4" />
                   {slide.date?.toLocaleDateString()}
+                  <ClockIcon className="size-4" />
+                  {slide.duration} hr
                 </p>
               )}
               <div className="flex gap-2">
