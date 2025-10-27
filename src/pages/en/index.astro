@@ -3,7 +3,10 @@ import Layout from "@/layouts/Layout.astro";
 import TechStacks from "@/components/react/TechStacks";
 import { getCollection } from "astro:content";
 import Slides from "@/components/react/Slides";
+import TypeText from "@/components/react/TypeText";
 import { getLangFromUrl } from "@/i18n/utils";
+import Experience from "@/components/react/Experience";
+import Projects from "@/components/react/Projects";
 
 const currentLang = getLangFromUrl(Astro.url);
 
@@ -16,15 +19,33 @@ const sortedSlides = author?.slides?.sort((a, b) => {
     new Date(a?.date ?? new Date()).getTime()
   );
 });
+
+const sortedExperience = author?.experience?.sort((a, b) => {
+  return (
+    new Date(b?.startDate ?? new Date()).getTime() -
+    new Date(a?.startDate ?? new Date()).getTime()
+  );
+});
 ---
 
 <Layout>
   <div class="flex flex-col items-center justify-center">
+    <TypeText client:only="react" text="我只會寫 Hello World" />
     <TechStacks
       techStacks={author.techStacks}
       client:only="react"
       lang={currentLang}
     />
     <Slides slides={sortedSlides} client:only="react" lang={currentLang} />
+    <Experience
+      experience={sortedExperience}
+      client:only="react"
+      lang={currentLang}
+    />
+    <Projects
+      projects={author.projects}
+      client:only="react"
+      lang={currentLang}
+    />
   </div>
 </Layout>

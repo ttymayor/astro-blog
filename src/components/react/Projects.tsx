@@ -2,12 +2,11 @@ import type { CollectionEntry } from "astro:content";
 import { motion } from "motion/react";
 import { useTranslations } from "@/i18n/utils";
 import { ui } from "@/i18n/ui";
-import { ExternalLinkIcon, GithubIcon, ImageOff } from "lucide-react";
+import { ExternalLinkIcon, ImageOff } from "lucide-react";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { SiGithub } from "@icons-pack/react-simple-icons";
-import { Separator } from "@/components/ui/separator";
 
 interface ProjectsProps {
   projects: CollectionEntry<"site">["data"]["author"]["projects"] | undefined;
