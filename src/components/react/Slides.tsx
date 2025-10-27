@@ -62,16 +62,26 @@ export default function Slides({ slides, lang }: SlidesProps) {
                   ))}
                 </p>
               )}
-              {slide.location && (
-                <p className="text-muted-foreground flex items-center gap-2 text-sm">
-                  <MapPinIcon className="size-4" />
-                  {slide.location}
-                  <CalendarIcon className="size-4" />
-                  {slide.date?.toLocaleDateString()}
-                  <ClockIcon className="size-4" />
-                  {slide.duration} hr
-                </p>
-              )}
+              <div className="text-muted-foreground mb-4 flex flex-col gap-2 text-sm sm:flex-row md:items-center md:gap-2">
+                {slide.location && (
+                  <div className="flex items-center gap-2">
+                    <MapPinIcon className="size-4" />
+                    {slide.location}
+                  </div>
+                )}
+                {slide.date && (
+                  <div className="flex items-center gap-2">
+                    <CalendarIcon className="size-4" />
+                    {slide.date?.toLocaleDateString()}
+                  </div>
+                )}
+                {slide.duration && (
+                  <div className="flex items-center gap-2">
+                    <ClockIcon className="size-4" />
+                    {slide.duration} hr
+                  </div>
+                )}
+              </div>
               <div className="flex gap-2">
                 {slide.slideLink && (
                   <a
