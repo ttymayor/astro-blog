@@ -63,6 +63,14 @@ const site = defineCollection({
         location: z.string().optional(),
         date: z.coerce.date().optional(),
       })).optional(),
+      projects: z.array(z.object({
+        title: z.string(),
+        description: z.string().optional(),
+        url: z.string().optional(),
+        tags: z.array(z.string()).optional(),
+        image: z.string().optional(),
+        github: z.string().optional(),
+      })).optional(),
     }),
     menu: z.array(z.object({
       label: z.string(),

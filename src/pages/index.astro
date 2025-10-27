@@ -6,6 +6,7 @@ import Slides from "@/components/react/Slides";
 import TypeText from "@/components/react/TypeText";
 import { getLangFromUrl } from "@/i18n/utils";
 import Experience from "@/components/react/Experience";
+import Projects from "@/components/react/Projects";
 
 const currentLang = getLangFromUrl(Astro.url);
 
@@ -41,5 +42,6 @@ const sortedExperience = author?.experience?.sort((a, b) => {
       client:only="react"
       lang={currentLang}
     />
+    <Projects projects={author.projects} client:only="react" lang={currentLang} />
   </div>
 </Layout>
