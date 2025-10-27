@@ -24,7 +24,7 @@ export default function Slides({ slides, lang }: SlidesProps) {
   const t = useTranslations(lang as keyof typeof ui);
 
   return (
-    <div className="h-full w-full">
+    <div className="my-6 w-full">
       <motion.h2
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}

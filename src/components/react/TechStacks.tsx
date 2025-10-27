@@ -29,12 +29,12 @@ export default function TechStacks({
   const t = useTranslations(lang as keyof typeof ui);
 
   return (
-    <>
+    <div className="my-6 w-full">
       <motion.h2
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="text-left w-full"
+        className="w-full text-left"
       >
         {t("techStacks.title")}
       </motion.h2>
@@ -82,6 +82,6 @@ export default function TechStacks({
           </MarqueeContent>
         </Marquee>
       </motion.div>
-    </>
+    </div>
   );
 }
