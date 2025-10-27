@@ -5,6 +5,7 @@ import { getCollection } from "astro:content";
 import Slides from "@/components/react/Slides";
 import TypeText from "@/components/react/TypeText";
 import { getLangFromUrl } from "@/i18n/utils";
+import Experience from "@/components/react/Experience";
 
 const currentLang = getLangFromUrl(Astro.url);
 
@@ -15,6 +16,13 @@ const sortedSlides = author?.slides?.sort((a, b) => {
   return (
     new Date(b?.date ?? new Date()).getTime() -
     new Date(a?.date ?? new Date()).getTime()
+  );
+});
+
+const sortedExperience = author?.experience?.sort((a, b) => {
+  return (
+    new Date(b?.startDate ?? new Date()).getTime() -
+    new Date(a?.startDate ?? new Date()).getTime()
   );
 });
 ---
@@ -28,5 +36,10 @@ const sortedSlides = author?.slides?.sort((a, b) => {
       lang={currentLang}
     />
     <Slides slides={sortedSlides} client:only="react" lang={currentLang} />
+    <Experience
+      experience={sortedExperience}
+      client:only="react"
+      lang={currentLang}
+    />
   </div>
 </Layout>

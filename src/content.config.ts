@@ -37,6 +37,15 @@ const site = defineCollection({
         name: z.string(),
         icon: z.string(),
       })),
+      experience: z.array(z.object({
+        title: z.string(),
+        company: z.string().optional(),
+        position: z.string().optional(),
+        description: z.string().optional(),
+        tags: z.array(z.string()).optional(),
+        startDate: z.coerce.date(),
+        endDate: z.coerce.date().optional(),
+      })),
       events: z.array(z.object({
         title: z.string(),
         description: z.string(),

@@ -135,6 +135,17 @@
           "date": "2021-01-02"
         }
       ],
+      "experience": [
+        {
+          "title": "Full Stack",
+          "company": "JTX 嘉泰興",
+          "position": "Intern",
+          "startDate": "2025/06/23",
+          "endDate": "2025/08/22",
+          "description": "使用 Laravel 與 Vue.js 開發前後端，主要開發功能：出入庫功能的資料庫設計、後端 API 開發、前端 API 串接",
+          "tags": ["Laravel", "Vue.js", "MySQL"]
+        }
+      ],
       "slides": [
         {
           "title": "Linux - 你應該要認識的企鵝",

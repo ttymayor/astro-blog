@@ -19,6 +19,7 @@ export const ui = {
     "theme.current.dark": "深色",
     "techStacks.title": "工具 & 技能",
     "slides.title": "簡報",
+    "experience.title": "經驗",
   },
   en: {
     "nav.about": "About",
@@ -33,6 +34,7 @@ export const ui = {
     "theme.current.dark": "Dark",
     "techStacks.title": "Tech Stacks",
     "slides.title": "Slides",
+    "experience.title": "Experience",
   },
 } as const;
 
