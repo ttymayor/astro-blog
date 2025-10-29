@@ -6,6 +6,7 @@ import Footer from "../components/Footer.astro";
 import ThemeHeadScript from "@/components/ThemeHeadScript.astro";
 import { getCollection } from "astro:content";
 import GlowCursor from "@/components/react/GlowCursor";
+import "devicon/devicon.min.css";
 
 const site = await getCollection("site");
 const title = site[0]?.data.title;
