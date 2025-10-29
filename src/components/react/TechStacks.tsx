@@ -8,6 +8,7 @@ import "@/styles/marquee.css";
 import { motion } from "motion/react";
 import { useTranslations } from "@/i18n/utils";
 import { ui } from "@/i18n/ui";
+import "devicon/devicon.min.css";
 
 interface TechStack {
   name: string;
