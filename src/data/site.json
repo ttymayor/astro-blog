@@ -190,7 +190,7 @@
           "title": "東海選課資訊（爬蟲）",
           "description": "使用 Python 爬蟲獲取東海選課資訊，並儲存到 MongoDB 中",
           "tags": ["Python", "MongoDB"],
-          "image": "https://opengraph.githubassets.com/a77e504261876f8505487d82f72ca5bb00bf48a4abcd1c282ced0cbb5d6c6e80/ttymayor/thu-course-crawler",
+          "image": "/images/thu-course-crawler.png",
           "github": "https://github.com/ttymayor/thu-course-crawler"
         },
         {
@@ -198,7 +198,7 @@
           "description": "114 THU Hacker Club 的官網，雖然我在資安方面沒有過多深入研究，但在網頁開發上，為駭客社留下一個網站",
           "url": "https://thu-hacker-club.zeabur.app",
           "tags": ["Astro", "React", "Tailwind CSS"],
-          "image": "https://opengraph.githubassets.com/10e52f3d9622eb55bda2a326092f28dd20d270750e8898f1b37f4a941c5f4f6f/ttymayor/thu-hacker-club",
+          "image": "/images/thu-hacker-club.png",
           "github": "https://github.com/ttymayor/thu-hacker-club"
         }
       ]

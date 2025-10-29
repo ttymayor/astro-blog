@@ -44,6 +44,7 @@ export default function Projects({ projects, lang }: ProjectsProps) {
                 <img
                   src={project.image}
                   alt={project.title}
+                  loading="lazy"
                   className="h-full w-full rounded-md object-cover"
                 />
               </AspectRatio>
