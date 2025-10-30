@@ -7,6 +7,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
+import { useState, useEffect } from "react";
 
 const languages = {
   "zh-TW": "繁體中文",
@@ -20,8 +21,27 @@ interface LanguageSwitcherProps {
 
 export default function LanguageSwitcher({
   lang,
-  currentPath,
+  currentPath: initialPath,
 }: LanguageSwitcherProps) {
+  const [currentPath, setCurrentPath] = useState(initialPath);
+
+  // 在客戶端更新 currentPath 以避免水合問題
+  useEffect(() => {
+    setCurrentPath(window.location.pathname);
+  }, []);
+
+  // 監聽路由變化
+  useEffect(() => {
+    const handleRouteChange = () => {
+      setCurrentPath(window.location.pathname);
+    };
+
+    document.addEventListener("astro:page-load", handleRouteChange);
+
+    return () => {
+      document.removeEventListener("astro:page-load", handleRouteChange);
+    };
+  }, []);
   const getLocalizedPath = (lang: string, path: string) => {
     // 移除當前語言前綴（如果有）
     let cleanPath = path;

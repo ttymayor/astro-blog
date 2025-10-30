@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { MenuIcon, XIcon } from "lucide-react";
 import TaiwanTime from "./TaiwanTime";
 import ThemeToggle from "./ThemeToggle";
@@ -25,12 +25,32 @@ interface NavbarProps {
 
 export default function Navbar({
   menu,
-  pathname,
+  pathname: initialPathname,
   author,
   lang,
   menuTitle,
 }: NavbarProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [pathname, setPathname] = useState(initialPathname);
+
+  // 在客戶端更新 pathname 以避免水合問題
+  useEffect(() => {
+    setPathname(window.location.pathname);
+  }, []);
+
+  // 監聽路由變化 (用於 Astro 的客戶端路由)
+  useEffect(() => {
+    const handleRouteChange = () => {
+      setPathname(window.location.pathname);
+    };
+
+    // Astro 的路由事件
+    document.addEventListener("astro:page-load", handleRouteChange);
+
+    return () => {
+      document.removeEventListener("astro:page-load", handleRouteChange);
+    };
+  }, []);
 
   return (
     <>
